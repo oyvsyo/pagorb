@@ -1,9 +1,0 @@
-django:
-  image: oyvsyo/pagorb:latest
-  command: python manage.py runserver
-  environment:
-    RUN_ENV: "$RUN_ENV"
-  ports:
-   - "80:8000"
-  volumes:
-   - .:/project

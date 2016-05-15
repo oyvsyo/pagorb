@@ -6,4 +6,5 @@ db.sqlide3
 *.pid
 *~
 /static
+/bootstrap_templ
 .vagrant/
