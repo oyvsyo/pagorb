@@ -4,5 +4,6 @@ db.sqlide3
 *.ini
 *.log
 *.pid
+*.*~
 /static
 .vagrant/
