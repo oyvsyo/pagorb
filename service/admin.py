@@ -2,22 +2,23 @@ from django.contrib import admin
 from .models import Service, Enterprise  #, Message
 
 
-my_models = [Service, Enterprise]
-
-
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description')
-    form = Service
+    list_display = ('name',)
+    list_filter = ['enterprise__name']
+    # form = Service
 
 
 class EnterpriseAdmin(admin.ModelAdmin):
     list_display = ('name', 'description')
-    form = Enterprise
+    # form = Enterprise
 
 
 # class MessageAdmin(admin.ModelAdmin):
 #     list_display = ('text', 'mail', 'phone')
 #     form = Message
 
-admin.site.register(my_models)
 
+my_models = [ServiceAdmin, EnterpriseAdmin]
+
+admin.site.register(Service, ServiceAdmin)
+admin.site.register(Enterprise, EnterpriseAdmin)
