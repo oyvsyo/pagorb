@@ -1,10 +1,23 @@
 from django.contrib import admin
-from .models import Service
+from .models import Service, Enterprise, Message
+
+
+my_models = [Service, Enterprise, Message]
 
 
 class ServiceAdmin(admin.ModelAdmin):
-    fields = ['service_name', 'service_description']
-    list_display = ('service_name', 'service_description')
+    list_display = ('name', 'description')
+    form = Service
 
-admin.site.register(Service, ServiceAdmin)
+
+class EnterpriseAdmin(admin.ModelAdmin):
+    list_display = ('name', 'description')
+    form = Enterprise
+
+
+class MessageAdmin(admin.ModelAdmin):
+    list_display = ('text', 'mail', 'phone')
+    form = Message
+
+admin.site.register(my_models)
 

@@ -2,8 +2,24 @@ from django.db import models
 
 
 class Service(models.Model):
-    service_name = models.CharField(max_length=200)
-    service_description = models.CharField(max_length=500)
+    name = models.CharField(max_length=200)
+    description = models.CharField(max_length=500)
 
-    def __str__(self):
-        return self.service_name
+    def __unicode__(self):
+        return unicode(self.name)
+
+
+class Enterprise(Service):
+
+    def __unicode__(self):
+        return unicode(self.name)
+
+
+class Message(models.Model):
+    mail = models.EmailField()
+    text = models.CharField(max_length=500)
+    phone = models.CharField(max_length=14)
+    date_send = models.DateTimeField(auto_now=False, auto_now_add=True)
+
+    def __unicode__(self):
+        return unicode(self.date_send)
