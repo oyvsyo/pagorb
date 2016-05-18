@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Service, Enterprise, Message
+from .models import Service, Enterprise  #, Message
 
 
-my_models = [Service, Enterprise, Message]
+my_models = [Service, Enterprise]
 
 
 class ServiceAdmin(admin.ModelAdmin):
@@ -15,9 +15,9 @@ class EnterpriseAdmin(admin.ModelAdmin):
     form = Enterprise
 
 
-class MessageAdmin(admin.ModelAdmin):
-    list_display = ('text', 'mail', 'phone')
-    form = Message
+# class MessageAdmin(admin.ModelAdmin):
+#     list_display = ('text', 'mail', 'phone')
+#     form = Message
 
 admin.site.register(my_models)
 

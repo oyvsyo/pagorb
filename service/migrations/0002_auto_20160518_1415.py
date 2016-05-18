@@ -14,9 +14,10 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Enterprise',
             fields=[
-                ('service_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='service.Service')),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('name', models.CharField(max_length=200)),
+                ('description', models.CharField(max_length=500)),
             ],
-            bases=('service.service',),
         ),
         migrations.CreateModel(
             name='Message',
@@ -37,5 +38,10 @@ class Migration(migrations.Migration):
             model_name='service',
             old_name='service_name',
             new_name='name',
+        ),
+        migrations.AddField(
+            model_name='service',
+            name='enterprise',
+            field=models.ForeignKey(default=0, to='service.Enterprise'),
         ),
     ]
