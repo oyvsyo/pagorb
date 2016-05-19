@@ -1,4 +1,33 @@
-<h1>{{ name }}</h1>
-<hr>
-<h2>Description</h2>
-<text>{{ description }}</text>
+{% extends "base.html" %}
+
+{% block title %} {{ super.block}} {{ name }} {% endblock %}
+
+
+{% include 'navbar.html' %}
+
+{% block header %}
+ <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in"></div>
+                <div class="intro-heading">{{ name }}</div>
+                <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+            </div>
+        </div>
+ </header>
+{% endblock %}
+
+
+{% block service %}
+<section id="services">
+         <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Description:</h2>
+                    <h3 class="section-subheading text-muted">{{ description }}</h3>
+                </div>
+            </div>
+         </div>
+</section>
+{% endblock %}
+
