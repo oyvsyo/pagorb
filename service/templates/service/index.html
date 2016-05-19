@@ -1,9 +1,0 @@
-{% if latest_service_list %}
-    <ul>
-    {% for question in latest_service_list %}
-        <li><a href="/service/{{ service.id }}/">{{ service.service_text }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No service are available.</p>
-{% endif %}

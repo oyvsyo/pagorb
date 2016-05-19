@@ -1,13 +1,27 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Service
+from .models import Service, Enterprise
 
 
-def index(request):
-    latest_service_list = Service.objects.all()
-    context = {'latest_service_list': latest_service_list}
-    return render(request, 'service/index.html', context)
+def enterprise(request, enterprise_id):
+    enterprise_item = Enterprise.objects.get(id=enterprise_id)
+    name = enterprise_item.name
+    services = enterprise_item.service_set.all()
+    description = enterprise_item.description
+    context = {
+        'name': name,
+        'services': services,
+        'description': description
+    }
+    return render(request, 'service/enterprise.html', context)
 
 
-def detail(request, service_id):
-    return HttpResponse("You're looking at question %s." % service_id)
+def service(request, service_id):
+    service_item = Service.objects.get(id=service_id)
+    name = service_item.name
+    description = service_item.description
+    context = {
+        'name': name,
+        'description': description
+    }
+    return render(request, 'service/service.html', context)

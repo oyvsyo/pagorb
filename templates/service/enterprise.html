@@ -1,0 +1,29 @@
+<div class="col-lg-7">
+
+    <h1>{{ name }}</h1>
+
+
+    <hr>
+    <h2>Services</h2>
+    <hr>
+    {% if services %}
+    <table class="table table-striped" cellspacing="2" cellpadding="2">
+        <thead>
+        <tr>
+            <td width="500"><h4>Name</h4></td>
+            <td><h4>Discription</h4></td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for service in services %}
+             <tr><td width="500"><h4><a href="{% url 'service' service.id %}">
+                 {{ service.name }}</a></h4></td>
+                 <td><h5><div class="text"><span class="">
+                 </span>{{ service.description }}</div></h5></td></h3></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>No service are available.</p>
+    {% endif %}
+</div>
