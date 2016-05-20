@@ -3,7 +3,43 @@
 {% block title %} {{ super.block}} {{ name }} {% endblock %}
 
 
-{% include 'navbar.html' %}
+{% block navbar %}
+ <nav class="navbar navbar-default navbar-fixed-top ">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="{% url 'home' %}">PAGORB</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{%url 'home'%}#services">Services</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{%url 'home'%}#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{%url 'home'%}#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+{% endblock %}
 
 {% block header %}
  <header>
@@ -22,22 +58,24 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
+                <h3 class="section-subheading text-muted">{{ description }}</h3>
                 <h2 class="section-heading">Services:</h2>
-                <h3 class="section-subheading text-muted">This enterprise include:</h3>
+
             </div>
         </div>
     </div>
     <div class="col-lg-12">
-        <ul class="">
+        <ul class="" >
             {% for i in services %}
-            <li>
+            <li class="">
                 <div class="col-lg-12 text-center">
+
                     <div class="timeline-heading">
                         <h4 class="subheading"><a href="{% url 'service' i.id %}">{{ i.name }}</a></h4>
                     </div>
                     <div class="timeline-body">
                         <p class="text-muted">{{ forloop.counter }}</p>
-                        <p class="text-muted">{{ i.description }}</p>
+                        <!--<p class="text-muted">{{ i.description }}</p>-->
                     </div>
                 </div>
             </li>

@@ -8,10 +8,12 @@ def enterprise(request, enterprise_id):
     name = enterprise_item.name
     services = enterprise_item.service_set.all()
     description = enterprise_item.description
+    parity = [i % 2 for i in range(len(services))]
     context = {
         'name': name,
         'services': services,
-        'description': description
+        'description': description,
+        'parity': parity
     }
     return render(request, 'service/enterprise.html', context)
 
