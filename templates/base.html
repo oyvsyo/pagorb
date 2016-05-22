@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    {% load staticfiles %}
+
+    {% include 'head_css.html' %}
+    {% include 'head_js.html' %}
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    {% block navbar %}
+    {% endblock %}
+
+
+    <!-- Header -->
+    {% block header %}
+    {% endblock %}
+
+
+    <!-- Services Section -->
+
+    {% block service %}
+    {% endblock %}
+
+
+    <!-- About Section -->
+
+    {% block about %}
+    {% endblock %}
+
+    
+    <!-- Contact Section -->
+    {% block contact %}
+    {% endblock %}
+
+    {% include 'footer.html' %}
+
+    {% include 'js.html' %}
+</body>
+
+</html>

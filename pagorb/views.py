@@ -6,8 +6,10 @@ from service.forms import MessageForm
 
 def home(request):
     enterprise_list = Enterprise.objects.all()
-    context = {'enterprise_list': enterprise_list}
-    return render(request, 'index.html', context)
+    context = {
+        'enterprise_list': enterprise_list,
+               }
+    return render(request, 'home.html', context)
 
 
 def message(request):
