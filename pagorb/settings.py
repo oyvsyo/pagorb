@@ -27,6 +27,20 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'your mail here'
+EMAIL_HOST_PASSWORD = 'your password here'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+# EMAIL_BACKEND =
+#   'django.core.mail.backends.console.EmailBackend'
+# DEFAULT_FROM_EMAIL = 'testing@example.com'
+# EMAIL_HOST_USER = ''
+# EMAIL_HOST_PASSWORD = ''
+# EMAIL_USE_TLS = False
+# EMAIL_PORT = 1025
+
 
 # Application definition
 

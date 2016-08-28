@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+# from django.http import HttpResponse
 from .models import Service, Enterprise
 
 
@@ -20,8 +20,12 @@ def service(request, service_id):
     service_item = Service.objects.get(id=service_id)
     name = service_item.name
     description = service_item.description
+    enterprise_name = service_item.enterprise.name
+    enterprise_id = service_item.enterprise.id
     context = {
         'name': name,
-        'description': description
+        'description': description,
+        'enterprise': enterprise_name,
+        'id': enterprise_id
     }
     return render(request, 'service/service.html', context)

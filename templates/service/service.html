@@ -15,6 +15,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand page-scroll" href="{% url 'home' %}">PAGORB</a>
+                <!--<a class="navbar-brand page-scroll" href="{% url 'home' %}enterprise/{{ id }}">{{ enterprise }}</a>-->
+                <a class="navbar-brand page-scroll" href="{% url 'enterprise' id %}">{{ enterprise }}</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
