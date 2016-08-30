@@ -1,1 +1,1 @@
-web: gunicorn pagorb.wsgi —log-file -
+web: gunicorn pagorb.wsgi --log-file -
