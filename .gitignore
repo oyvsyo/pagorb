@@ -8,3 +8,4 @@ db.sqlide3
 /static
 /bootstrap_templ
 .vagrant/
+.env
