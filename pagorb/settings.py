@@ -33,15 +33,6 @@ EMAIL_HOST_PASSWORD = 'your password here'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-# EMAIL_BACKEND =
-#   'django.core.mail.backends.console.EmailBackend'
-# DEFAULT_FROM_EMAIL = 'testing@example.com'
-# EMAIL_HOST_USER = ''
-# EMAIL_HOST_PASSWORD = ''
-# EMAIL_USE_TLS = False
-# EMAIL_PORT = 1025
-
-
 # Application definition
 
 INSTALLED_APPS = (
@@ -116,14 +107,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+# PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
+
 # STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static', '/static/'),
+    os.path.join(PROJECT_ROOT, 'static'),
+    '/static/'
 )
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
