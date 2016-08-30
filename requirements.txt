@@ -3,3 +3,7 @@ Django==1.8.1
 gunicorn==19.6.0
 requests==2.11.1
 whitenoise==3.2.1
+dj-static
+django-toolbelt
+psycopg2
+static3
