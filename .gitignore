@@ -5,7 +5,7 @@ db.sqlide3
 *.log
 *.pid
 *~
-/static
-/bootstrap_templ
+/staticfiles
 .vagrant/
 .env
+/venv
