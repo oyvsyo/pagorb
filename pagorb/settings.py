@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.8/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
-
+import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
@@ -32,15 +32,6 @@ EMAIL_HOST_USER = 'your mail here'
 EMAIL_HOST_PASSWORD = 'your password here'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-
-# EMAIL_BACKEND =
-#   'django.core.mail.backends.console.EmailBackend'
-# DEFAULT_FROM_EMAIL = 'testing@example.com'
-# EMAIL_HOST_USER = ''
-# EMAIL_HOST_PASSWORD = ''
-# EMAIL_USE_TLS = False
-# EMAIL_PORT = 1025
-
 
 # Application definition
 
@@ -89,13 +80,15 @@ WSGI_APPLICATION = 'pagorb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+db_from_env = dj_database_url.config(conn_max_age=500)
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+DATABASES['default'].update(db_from_env)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -114,11 +107,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+# PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
+
 # STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-    '/static/',
+    os.path.join(PROJECT_ROOT, 'static'),
+    '/static/'
 )
+
+# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
