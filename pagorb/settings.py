@@ -28,7 +28,8 @@ if os.environ['RUN_ENV'] == "DEV":
 else:
     DEBUG = False
 
-ALLOWED_HOSTS = [".herokuapp.com"]
+ALLOWED_HOSTS = [".herokuapp.com", ".pahorb.if.ua"]
+
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'your mail here'
