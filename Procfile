@@ -1,1 +1,1 @@
-web: gunicorn pagorb.wsgi --log-file -
+web: python manage.py collectstatic --noinput; gunicorn pagorb.wsgi --log-file -
