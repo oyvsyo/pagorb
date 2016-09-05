@@ -30,7 +30,6 @@ else:
 
 ALLOWED_HOSTS = [".herokuapp.com", ".pahorb.if.ua"]
 
-
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'your mail here'
 EMAIL_HOST_PASSWORD = 'your password here'
