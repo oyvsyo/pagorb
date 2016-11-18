@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'pagorb.wsgi.application'
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 # db_from_env = dj_database_url.config(conn_max_age=500)
-
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 DATABASES = {'default': dj_database_url.config(default='postgres://pagorb:pagorb@localhost:5432/pagorb')}
 # DATABASES['default'] = dj_database_url.config()
 
