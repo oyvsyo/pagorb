@@ -84,18 +84,21 @@ WSGI_APPLICATION = 'pagorb.wsgi.application'
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 # db_from_env = dj_database_url.config(conn_max_age=500)
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES = {}
+DATABASES['default'].update(db_from_env)
+# DATABASES['default'] = dj_database_url.config()
 
-DATABASES = {
-    'default': dj_database_url.config()
-    # {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'yournewdb',
-    #     'USER': 'yournewuser',
-    #     'PASSWORD': 'whateverpasswordyouenteredearlier',
-    #     'HOST': '', # Set to empty string for localhost.
-    #     'PORT': '', # Set to empty string for default.
-    # }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'pagorb',
+#         'USER': 'pagorb',
+#         'PASSWORD': 'pagorb',
+#         'HOST': 'localhost',     # Set to empty string for localhost.
+#         'PORT': '',     # Set to empty string for default.
+#     }
+# }
 # DATABASES['default'].update(db_from_env)
 
 # Internationalization
